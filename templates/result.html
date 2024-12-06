@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Usage Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Water Usage Results</h1>
+        
+        <div class="results-summary">
+            <h2>Daily Water Usage Summary</h2>
+            <p>Total Usage: {{ result.total_usage }} liters</p>
+            <p>Standard Daily Usage: {{ result.standard_usage }} liters</p>
+            
+            {% if result.exceeds_standard %}
+            <div class="alert warning">
+                <h3>Your water usage exceeds the standard daily amount</h3>
+                {% if result.conservation_tips %}
+                <h4>Conservation Tips:</h4>
+                <ul>
+                    {% for tip in result.conservation_tips %}
+                    <li>{{ tip }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="alert success">
+                <p>Great job! Your water usage is within the recommended range.</p>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div id="chart" class="chart-container"></div>
+        
+        <form action="{{ url_for('download_report') }}" method="post">
+            <input type="hidden" name="shower_minutes" value="{{ request.form.shower_minutes }}">
+            <input type="hidden" name="dishes_minutes" value="{{ request.form.dishes_minutes }}">
+            <input type="hidden" name="laundry_loads" value="{{ request.form.laundry_loads }}">
+            <input type="hidden" name="other_usage" value="{{ request.form.other_usage }}">
+            <button type="submit" class="btn">Download Report (CSV)</button>
+        </form>
+        
+        <a href="{{ url_for('home') }}" class="btn">Calculate Again</a>
+    </div>
+    
+    <script>
+        const chartData = {{ chart_json | safe }};
+        Plotly.newPlot('chart', chartData.data, chartData.layout);
+    </script>
+</body>
+</html>

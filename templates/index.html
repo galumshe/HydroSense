@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Usage Calculator</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Water Usage Calculator</h1>
+        <form action="{{ url_for('calculate') }}" method="post">
+            <div class="form-group">
+                <label for="shower_minutes">Daily Shower Time (minutes):</label>
+                <input type="number" id="shower_minutes" name="shower_minutes" step="0.1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dishes_minutes">Daily Dish Washing Time (minutes):</label>
+                <input type="number" id="dishes_minutes" name="dishes_minutes" step="0.1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="laundry_loads">Laundry Loads per Week:</label>
+                <input type="number" id="laundry_loads" name="laundry_loads" step="0.1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="other_usage">Other Daily Water Usage (liters):</label>
+                <input type="number" id="other_usage" name="other_usage" step="0.1" required>
+            </div>
+            
+            <button type="submit" class="btn">Calculate Usage</button>
+        </form>
+    </div>
+</body>
+</html>
