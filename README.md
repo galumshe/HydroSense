@@ -47,10 +47,17 @@ HydroSense/
 ├── static/
 │   ├── css/
 │   │   └── style.css
-│   └── js/
+│   └── reports/
+|   │   .gitkeep
 ├── templates/
 │   ├── index.html
-│   └── dashboard.html
+│   └── results.html
+├── utils/
+│   ├── __pycache__/
+│   │   └── calculator.cpython-313.pyc
+│   │   └── report_generator.cpython-313.pyc
+│   └── calculator.py
+|   └── report_generator.py
 ├── app.py
 ├── requirements.txt
 └── README.md
