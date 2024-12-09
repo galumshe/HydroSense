@@ -63,3 +63,12 @@ def download_report():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# Add this after your route definitions in app.py
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('error.html', message="Something went wrong. Please try again later."), 500
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('error.html', message="Page not found."), 404
