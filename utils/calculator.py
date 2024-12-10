@@ -40,6 +40,7 @@ def calculate_water_usage(data):
         'total_usage': round(total_usage, 2),
         'shower_usage': round(shower_usage, 2),
         'dishes_usage': round(dishes_usage, 2),
+        'dishes_usage': round(dishes_usage, 2),
         'laundry_usage': round(laundry_usage, 2),
         'other_usage': round(other_usage, 2),
         'exceeds_standard': exceeds_standard,

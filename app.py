@@ -6,7 +6,7 @@ import plotly.utils
 import json
 
 app = Flask(__name__)
-
+# routes 
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -16,6 +16,7 @@ def calculate():
     usage_data = {
         'shower_minutes': float(request.form.get('shower_minutes', 0)),
         'dishes_minutes': float(request.form.get('dishes_minutes', 0)),
+        'dishes_minutes': float(request.form.get('cooking_minutes', 0)),
         'laundry_loads': float(request.form.get('laundry_loads', 0)),
         'other_usage': float(request.form.get('other_usage', 0))
     }
@@ -26,6 +27,7 @@ def calculate():
     usage_breakdown = {
         'Shower': result['shower_usage'],
         'Dishes': result['dishes_usage'],
+        'Dishes': result['cooking_usage'],
         'Laundry': result['laundry_usage'],
         'Other': result['other_usage']
     }
@@ -49,6 +51,7 @@ def download_report():
     usage_data = {
         'shower_minutes': float(request.form.get('shower_minutes', 0)),
         'dishes_minutes': float(request.form.get('dishes_minutes', 0)),
+        'dishes_minutes': float(request.form.get('cooking_minutes', 0)),
         'laundry_loads': float(request.form.get('laundry_loads', 0)),
         'other_usage': float(request.form.get('other_usage', 0))
     }
@@ -64,7 +67,7 @@ def download_report():
 if __name__ == '__main__':
     app.run(debug=True)
 
-# Add this after your route definitions in app.py
+# error handling after route definitions in app.py
 @app.errorhandler(500)
 def internal_error(error):
     return render_template('error.html', message="Something went wrong. Please try again later."), 500
