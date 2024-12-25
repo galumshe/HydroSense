@@ -51,7 +51,7 @@ def download_report():
     usage_data = {
         'shower_minutes': float(request.form.get('shower_minutes', 0)),
         'dishes_minutes': float(request.form.get('dishes_minutes', 0)),
-        'dishes_minutes': float(request.form.get('cooking_minutes', 0)),
+        'cooking_minutes': float(request.form.get('cooking_minutes', 0)),  # Corrected key
         'laundry_loads': float(request.form.get('laundry_loads', 0)),
         'other_usage': float(request.form.get('other_usage', 0))
     }
