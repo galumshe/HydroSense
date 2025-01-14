@@ -19,10 +19,10 @@ def generate_csv_report(data):
     
     # Prepare data for CSV
     report_data = {
-        'Category': ['Shower', 'Dishes', 'Cooking' 'Laundry', 'Other', 'Total'],
+        'Category': ['Shower', 'Toilet Flushes', 'Dishes', 'Cooking' 'Laundry', 'Other', 'Total'],
         'Usage (Liters)': [
             result['shower_usage'],
-            result['dishes_usage'],
+            result['toilet_usage'],
             result['cooking_usage'],
             result['laundry_usage'],
             result['other_usage'],
