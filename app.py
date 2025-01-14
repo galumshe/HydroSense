@@ -15,6 +15,7 @@ def home():
 def calculate():
     usage_data = {
         'shower_minutes': float(request.form.get('shower_minutes', 0)),
+        'toilet_flushes': float(request.form.get('toilet_flushes', 0)),
         'dishes_minutes': float(request.form.get('dishes_minutes', 0)),
         'cooking_minutes': float(request.form.get('cooking_minutes', 0)),
         'laundry_loads': float(request.form.get('laundry_loads', 0)),
@@ -26,6 +27,7 @@ def calculate():
     # Create visualization
     usage_breakdown = {
         'Shower': result['shower_usage'],
+        'Toilet': result['toilet_usage'],
         'Dishes': result['dishes_usage'],
         'Cooking': result['cooking_usage'],
         'Laundry': result['laundry_usage'],
@@ -50,6 +52,7 @@ def calculate():
 def download_report():
     usage_data = {
         'shower_minutes': float(request.form.get('shower_minutes', 0)),
+        'toilet_flushes': float(request.form.get('toilet_flushes', 0)),
         'dishes_minutes': float(request.form.get('dishes_minutes', 0)),
         'cooking_minutes': float(request.form.get('cooking_minutes', 0)),  # Corrected key
         'laundry_loads': float(request.form.get('laundry_loads', 0)),
