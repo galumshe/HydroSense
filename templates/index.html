@@ -14,32 +14,32 @@
         <form action="{{ url_for('calculate') }}" method="post">
             <div class="form-group">
                 <label for="shower_minutes">Daily Shower Time (minutes):</label>
-                <input type="number" id="shower_minutes" name="shower_minutes" step="0.1" required>
+                <input type="number" id="shower_minutes" name="shower_minutes"  placeholder="Enter number of minutes used for Showering " step="0.1" required>
             </div>
 
             <div class="form-group">
                 <label for="toiletFlushes">Number of Toilet Flushes per Day:</label>
-                <input type="number" id="toiletFlushes" name="toiletFlushes" step="0.1" required>
+                <input type="number" id="toiletFlushes" name="toiletFlushes" placeholder="Enter number of toilet flushes per day" step="0.1" required>
             </div>
             
             <div class="form-group">
                 <label for="dishes_minutes">Daily Dish Washing Time (minutes):</label>
-                <input type="number" id="dishes_minutes" name="dishes_minutes" step="0.1" required>
+                <input type="number" id="dishes_minutes" name="dishes_minutes" placeholder="Enter number of minutes used for Dish washing" step="0.1" required>
             </div>
 
             <div class="form-group">
                 <label for="cooking_minutes">Daily Meal Cooking Time (minutes):</label>
-                <input type="number" id="cooking_minutes" name="cooking_minutes" step="0.1" required>
+                <input type="number" id="cooking_minutes" name="cooking_minutes" placeholder="Enter number of minutes used for Cooking" step="0.1" required>
             </div>
             
             <div class="form-group">
                 <label for="laundry_loads">Laundry Loads per Week:</label>
-                <input type="number" id="laundry_loads" name="laundry_loads" step="0.1" required>
+                <input type="number" id="laundry_loads" name="laundry_loads" placeholder="Enter number of laundry loads per Week" step="0.1" required>
             </div>
             
             <div class="form-group">
                 <label for="other_usage">Other Daily Water Usage (liters):</label>
-                <input type="number" id="other_usage" name="other_usage" step="0.1" required>
+                <input type="number" id="other_usage" name="other_usage" placeholder="Enter number of liters of water used for other purposes " step="0.1" required>
             </div>
             
             <button type="submit" class="btn">Calculate Usage</button>
