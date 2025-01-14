@@ -10,6 +10,7 @@ def calculate_water_usage(data):
     """
     # Water usage constants (liters)
     SHOWER_RATE = 10  # liters per minute
+    FLUSHES_RATE = 6  # liters per flush
     DISHES_RATE = 6   # liters per minute
     COOKING_RATE = 6   # liters per minute
     LAUNDRY_LOAD = 50 # liters per load
@@ -17,6 +18,7 @@ def calculate_water_usage(data):
     
     # Calculate individual usages
     shower_usage = data['shower_minutes'] * SHOWER_RATE
+    toilet_usage = data['toilet_flushes'] * FLUSHES_RATE # 6 liters per flush
     dishes_usage = data['dishes_minutes'] * DISHES_RATE
     cooking_usage = data['cooking_minutes'] * COOKING_RATE
     laundry_usage = data['laundry_loads'] * LAUNDRY_LOAD / 7  # Convert weekly to daily
@@ -32,7 +34,9 @@ def calculate_water_usage(data):
     conservation_tips = []
     if exceeds_standard:
         if shower_usage > 50:
-            conservation_tips.append("Consider taking shorter showers")
+            conservation_tips.append("Consider taking shorter showers")  
+        if toilet_usage > 15:
+            conservation_tips.append("Consider reducing watching what you eat and the ammount of fluids you consume")   
         if dishes_usage > 30:
             conservation_tips.append("Try using a dishwasher or being more efficient with dish washing")
         if laundry_usage > 20:
