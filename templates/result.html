@@ -39,7 +39,7 @@
         
         <form action="{{ url_for('download_report') }}" method="post">
             <input type="hidden" name="shower_minutes" value="{{ request.form.shower_minutes }}">
-            <input type="hidden" name="toiletFlushes" value="{{ request.form.toilet_flushes }}">
+            <input type="hidden" name="toilet_flushes" value="{{ request.form.toilet_flushes }}">
             <input type="hidden" name="dishes_minutes" value="{{ request.form.dishes_minutes }}">
             <input type="hidden" name="cooking_minutes" value="{{ request.form.cooking_minutes }}">
             <input type="hidden" name="laundry_loads" value="{{ request.form.laundry_loads }}">
